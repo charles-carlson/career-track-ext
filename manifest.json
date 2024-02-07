@@ -1,0 +1,15 @@
+{
+    "manifest_version": 3,
+    "name":"CareerTrack",
+    "description":"chrome extension for CareerTrack Web Application",
+    "version":"1.0",
+    "content_scripts":[
+        {
+            "css":["ext.css"],
+            "matches":["https://localhost:7021/*"]
+        }
+    ],
+    "action":{
+        "default_popup":"action.html"
+    }
+}
