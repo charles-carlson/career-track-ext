@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
        <link rel="stylesheet" href="ext.css">
@@ -29,11 +30,64 @@
         </div>
         <div id="job-form-container" style="display:none">
                 <form id="job-form">
-                    <input type="text" name="Name"/>
-                    <input type="text"name="Position"/>
+                    <div class="form-group" id="input-1">
+                        <label for="Name">What is the name of Company?</label>
+                        <input id="Name" type="text" name="Name"/>
+                        <div>
+                            <button class="nav-btn" id="next-1">Next</button>
+                        </div>
+                    </div>
+                    <div class="form-group" style="display:none" id="input-2">
+                        <label for="Position">What role are you applying for?</label>
+                        <input id="Position" type="text" name="Position"/>
+                        <div>
+                            <button type="button" class="nav-btn" id="back-1">Back</button>
+                            <button type="button" class="nav-btn" id="next-2">Next</button>
+                        </div>
+                    </div>
+                    <div class="form-group" style="display:none" id="input-3">
+                        <label for="Languages">What are the technical requirements?</label>
+                        <input id="Languages" type="text" name="Languages"/>
+                        <div>
+                            <button type="button" class="nav-btn" id="back-2">Back</button>
+                            <button type="button" class="nav-btn" id="next-3">Next</button>
+                        </div>
+                    </div>
+                    <div class="form-group" style="display:none" id="input-4">
+                        <label for="Location">What is the location?</label>
+                        <input id="Location" type="text" name="Location"/>
+                        <div>
+                            <button type="button" class="nav-btn" id="back-3">Back</button>
+                            <button type="button" class="nav-btn" id="next-4">Next</button>
+                        </div>
+                    </div>
+                    <div class="form-group" style="display:none" id="input-5">
+                        <label for="IsWFH">Is this role remote/hybrid or onsite?</label>
+                        <select id="IsWFH" name="IsWFH">
+                            <option value="Yes"></option>
+                            <option value="No"></option>
+                        </select>
+                        <div>
+                            <button type="button" class="nav-btn" id="back-4">Back</button>
+                            <button type="button" class="nav-btn" id="next-5">Next</button>
+                        </div>
+                    </div>
+                    <div class="form-group" style="display:none" id="input-6">
+                        <label for="Salary">What is the salary if posted?</label>
+                        <input id="Salary" type="text" name="Salary"/>
+                        <div>
+                            <button type="button" class="nav-btn" id="back-5">Back</button>
+                            <button type="submit" id="submit">Submit</button>
+                        </div>
+                    </div>
+                    <input type="hidden" id="DateApplied" name="DateApplied"/>
+                    <input type="hidden" id="ReplyBack" name="ReplyBack" value=""/>
+                    <input type="hidden" id="Interview" name="Interview" value=""/>
+                    <input type="hidden" id="Offer" name="Offer" value=""/>
                 </form>
        </div>
     </body>
     <script src="defaulticon.js" defer></script>
     <script src="toggle.js" defer></script>
+    <script src="form.js" defer></script>
 </html>
