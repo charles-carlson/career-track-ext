@@ -5,7 +5,7 @@
     "version":"1.0",
     "content_scripts":[
         {
-            "css":["ext.css"],
+            "css":["styles.css"],
             "matches":["https://localhost:7021/*"]
         }
     ],

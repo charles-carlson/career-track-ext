@@ -1,0 +1,52 @@
+.form-label{
+    margin-bottom: 10px;
+    font-size: large;
+    color: white;
+}
+#job-form-container{
+    display: flex;
+    justify-content: center;
+}
+.form-text-input{
+    border:none;
+    border-bottom: 1px solid white;
+    background: none;
+    margin-bottom: 10px;
+}
+.form-text-input:focus{
+    outline:none;
+    color:white;
+}
+.nav-btn{
+    font-size: 5em;
+    border: none;
+    background: none;
+    color: white;
+}
+.form-animation{
+   animation: fadeInAnimation ease 2s;
+   animation-iteration-count: 1;
+   animation-fill-mode:forwards; 
+}
+@keyframes fadeInAnimation{
+    0%{
+        opacity:0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.form-select{
+    background-color: lightseagreen;
+    border:none;
+    color:white;
+    font-size:large;
+    outline:none;
+}
+.submit-btn{
+    border:none;
+    background:none;
+    color:white;
+    font-size: 2em;
+}
+

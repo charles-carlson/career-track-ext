@@ -31,6 +31,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     Array.prototype.forEach.call(formGroups,(formGroup)=>{
         formGroup.style.alignItems = "center";
         formGroup.style.flexDirection = "column";
+        formGroup.classList.add("form-animation")
     })
 })
 document.addEventListener("DOMContentLoaded",()=>{
