@@ -1,3 +1,17 @@
+function submitForm(e){
+    console.log(`Form submitted, timestamp: ${e.timeStamp}`)
+    var form = document.getElementById("job-form")
+    var formData = new FormData(form);
+    for(var data of formData.entries()){
+        console.log(data)
+    }
+    console.log("Form submitted",form)
+}
+function checkForm(id){
+    var formGroup = document.getElementById(id);
+    var input = formGroup.children[1];
+    return input.value ? true : false;
+}
 function toggleNav(id){
     console.log("toggle the form group ",id)
     var formGroups = document.getElementsByClassName("form-group");
@@ -15,8 +29,13 @@ function submitNav(id){
     var dir = Number(identifiers[1]);
     console.log(`Identifiers of element are ${type} and ${dir}`)
     switch(type){
-        case "next":
-            toggleNav(`input-${dir + 1}`)
+        case "next":   
+            if(checkForm(`input-${dir}`)){
+                toggleNav(`input-${dir + 1}`)
+            }
+            else{
+                alert("input is required")
+            }
             break;
         case "back":
             toggleNav(`input-${dir}`)
@@ -53,3 +72,13 @@ document.addEventListener("DOMContentLoaded",()=>{
         })
     }
 })
+document.forms["job-form"]
+    .addEventListener("submit",(e)=>{
+        e.preventDefault();
+        if(document.forms["job-form"].reportValidity()){
+            submitForm(e);
+        }
+        else{
+            alert("form is missing required fields")
+        }
+    })
