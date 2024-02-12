@@ -2,9 +2,21 @@ function submitForm(e){
     console.log(`Form submitted, timestamp: ${e.timeStamp}`)
     var form = document.getElementById("job-form")
     var formData = new FormData(form);
+    var uri = "https://localhost:7021/Job/Add"
     for(var data of formData.entries()){
         console.log(data)
     }
+    fetch(uri,{
+        method:'POST',
+        headers:{
+            'Content-Type':'application/json'
+        },
+        body:JSON.stringify(formData)
+    }).then(res=>res.json())
+    .then(data=>console.log("Success:",data))
+    .catch((e)=>{
+        console.error("Error:",e)
+    })
     console.log("Form submitted",form)
 }
 function checkForm(id){
