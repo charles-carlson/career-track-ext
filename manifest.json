@@ -9,6 +9,10 @@
             "matches":["https://localhost:7021/*"]
         }
     ],
+    "host_permissions":[
+        "https://localhost:7021/*",
+        "http://localhost:5131/*"
+    ],
     "action":{
         "default_popup":"action.html"
     }

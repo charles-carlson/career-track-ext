@@ -2,20 +2,28 @@ function submitForm(e){
     console.log(`Form submitted, timestamp: ${e.timeStamp}`)
     var form = document.getElementById("job-form")
     var formData = new FormData(form);
-    var uri = "https://localhost:7021/Job/Add"
+    var url = chrome.runtime.getURL('action.html');
+console.log(url);
+    var uri = "https://localhost:7021/JobAPI/Add"
     for(var data of formData.entries()){
         console.log(data)
     }
+    var object = {};
+    formData.forEach(function(value, key){
+        object[key] = value;
+    });
+    var json = JSON.stringify(object);
+    console.log(json)
     fetch(uri,{
         method:'POST',
         headers:{
             'Content-Type':'application/json'
         },
-        body:JSON.stringify(formData)
+        body:json
     }).then(res=>res.json())
     .then(data=>console.log("Success:",data))
     .catch((e)=>{
-        console.error("Error:",e)
+        console.log("Error:",e)
     })
     console.log("Form submitted",form)
 }
