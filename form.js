@@ -8,20 +8,19 @@ console.log(url);
     for(var data of formData.entries()){
         console.log(data)
     }
-    var object = {};
-    formData.forEach(function(value, key){
-        object[key] = value;
-    });
-    var json = JSON.stringify(object);
-    console.log(json)
     fetch(uri,{
         method:'POST',
-        headers:{
-            'Content-Type':'application/json'
-        },
-        body:json
+        body:formData
     }).then(res=>res.json())
-    .then(data=>console.log("Success:",data))
+    .then(data=>{
+        console.log("Success:",data)
+        var success = document.getElementById("submission-text")
+        success.innerHTML = `Your application for ${data["position"]} with the company ${data["name"]} has been submitted`
+        var submitAfter = document.getElementById("submission");
+        var form = document.getElementById("job-form-container");
+        form.style.display = form.style.display === "none"?"flex":"none"
+        submitAfter.style.display = submitAfter.style.display === "none"?"flex":"none";
+    })
     .catch((e)=>{
         console.log("Error:",e)
     })
@@ -77,7 +76,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     var now = new Date();
     console.log("Applying for this position on",now);
     var input = document.getElementById("DateApplied");
-    input.value = now;
+    input.value = now.toISOString();
     console.log("Applied date to input for DateApplied:",now);
 })
 document.addEventListener("DOMContentLoaded",()=>{
