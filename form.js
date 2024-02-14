@@ -18,8 +18,12 @@ console.log(url);
         success.innerHTML = `Your application for ${data["position"]} with the company ${data["name"]} has been submitted`
         var submitAfter = document.getElementById("submission");
         var form = document.getElementById("job-form-container");
-        form.style.display = form.style.display === "none"?"flex":"none"
-        submitAfter.style.display = submitAfter.style.display === "none"?"flex":"none";
+        var lastInput = document.getElementById("input-6")
+        lastInput.style.display = "none"
+        form.style.display = "none"
+        submitAfter.style.display = "flex";
+        var jobForm = document.getElementById("job-form")
+        jobForm.reset();
     })
     .catch((e)=>{
         console.log("Error:",e)
