@@ -13,6 +13,9 @@
         "https://localhost:7021/*",
         "http://localhost:5131/*"
     ],
+    "permissions":[
+        "activeTab"
+    ],
     "action":{
         "default_popup":"action.html"
     }

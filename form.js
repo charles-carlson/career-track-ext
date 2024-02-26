@@ -1,9 +1,15 @@
-function submitForm(e){
-    console.log(`Form submitted, timestamp: ${e.timeStamp}`)
+function getCurrentTab(callback){
+    let queryOptions = {active:true,currentWindow:true};
+    chrome.tabs.query(queryOptions,(tab)=>{
+        callback(tab);
+    })
+}
+function submitForm(){
+    console.log(`Form submitted`)
     var form = document.getElementById("job-form")
     var formData = new FormData(form);
     var url = chrome.runtime.getURL('action.html');
-console.log(url);
+    console.log(url);
     var uri = "https://localhost:7021/JobAPI/Add"
     for(var data of formData.entries()){
         console.log(data)
@@ -83,6 +89,13 @@ document.addEventListener("DOMContentLoaded",()=>{
     input.value = now.toISOString();
     console.log("Applied date to input for DateApplied:",now);
 })
+function _retrieveURLForSubmission(tab){
+    console.log(tab[0].url)
+    var sourceForm = document.getElementById("Source")
+    sourceForm.value = tab[0].url;
+    console.log("Callback added value to source form")
+    submitForm();
+}
 document.addEventListener("DOMContentLoaded",()=>{
     var nextBtns = document.getElementsByClassName("nav-btn");
     console.log("Creating nav buttons")
@@ -99,7 +112,7 @@ document.forms["job-form"]
     .addEventListener("submit",(e)=>{
         e.preventDefault();
         if(document.forms["job-form"].reportValidity()){
-            submitForm(e);
+            getCurrentTab(_retrieveURLForSubmission)
         }
         else{
             alert("form is missing required fields")

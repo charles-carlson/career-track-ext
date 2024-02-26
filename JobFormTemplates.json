@@ -1,0 +1,18 @@
+{
+    "LinkedIn":
+        {
+        "name":"app-aware-link",
+        "position":"job-details-jobs-unified-top-card__job-title-link",
+        "isWFH":"job-details-jobs-unified-top-card__job-insight-view-model-secondary",
+        "location":"job-details-jobs-unified-top-card__primary-description-without-tagline mb2",
+        "InnerText":"job-details-jobs-unified-top-card__content--two-pane"
+       
+        },
+        "GlassDoor":{
+
+        },
+        "Indeed":{
+            
+        }
+    
+}
